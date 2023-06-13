@@ -39,7 +39,7 @@ class CodecOptions(collections.namedtuple('CodecOptions', _FIELDS)):
                 tz_aware=False,
                 uuid_representation=None,
                 unicode_decode_error_handler='strict',
-                tzinfo=None, type_registry=None):
+                tzinfo=None, type_registry=None, datetime_conversion=None):
 
         if document_class != dict:
             raise NotImplementedError(
@@ -57,8 +57,8 @@ class CodecOptions(collections.namedtuple('CodecOptions', _FIELDS)):
             raise NotImplementedError(
                 'Mongomock does not handle custom unicode_decode_error_handler yet')
 
-        if tzinfo:
-            raise NotImplementedError('Mongomock does not handle custom tzinfo yet')
+        # if tzinfo:
+        #     raise NotImplementedError('Mongomock does not handle custom tzinfo yet')
 
         values = (
             document_class, tz_aware, uuid_representation, unicode_decode_error_handler, tzinfo)
